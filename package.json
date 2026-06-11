@@ -1,0 +1,8 @@
+{
+  "name": "mimameidr",
+  "private": true,
+  "scripts": {
+    "verify": "./scripts/verify.sh",
+    "build:rust": "./scripts/build-rust.sh release"
+  }
+}

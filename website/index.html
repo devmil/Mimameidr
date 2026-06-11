@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mimameidr - Flutter/Rust Process Explorer</title>
+    <meta
+      name="description"
+      content="Mimameidr is a Flutter and Rust process explorer for macOS, built as a technical counterpart to Yggdrasil Explorer."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="brand" href="/">
+          <span class="brand-mark">M</span>
+          <span>Mimameidr</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#architecture">Architecture</a>
+          <a href="releases.html">Releases</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">macOS first · Flutter UI · Rust telemetry</p>
+          <h1>Mimameidr</h1>
+          <p class="lede">
+            A process explorer built to mirror Yggdrasil's behavior while
+            testing a Flutter/Rust implementation path.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="releases.html">Downloads</a>
+            <a class="button secondary" href="https://github.com/">Source</a>
+          </div>
+        </div>
+        <div class="app-shot" aria-label="Process explorer interface preview">
+          <div class="toolbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="app-body">
+            <div class="process-list">
+              <div class="row strong"><b>1</b><span>launchd</span><em>42 MB</em></div>
+              <div class="row"><b>412</b><span>WindowServer</span><em>382 MB</em></div>
+              <div class="row active"><b>830</b><span>Mimameidr</span><em>96 MB</em></div>
+              <div class="row"><b>991</b><span>rust-analyzer</span><em>1.2 GB</em></div>
+              <div class="row"><b>1402</b><span>Safari Web Content</span><em>714 MB</em></div>
+            </div>
+            <div class="inspector">
+              <h2>Mimameidr</h2>
+              <dl>
+                <dt>PID</dt><dd>830</dd>
+                <dt>Status</dt><dd>running</dd>
+                <dt>Executable</dt><dd>/Applications/Mimameidr.app</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="band">
+        <h2>Built for parity experiments</h2>
+        <div class="grid">
+          <article>
+            <h3>Stable tree target</h3>
+            <p>Process identity and tree-lock behavior are planned against the Yggdrasil reference.</p>
+          </article>
+          <article>
+            <h3>Rust telemetry</h3>
+            <p>The native core owns process enumeration and will grow into metrics, deltas, and inspection.</p>
+          </article>
+          <article>
+            <h3>Flutter desktop</h3>
+            <p>The UI uses service abstractions so platform behavior can evolve without widget-level FFI.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="architecture" class="band muted">
+        <h2>Architecture</h2>
+        <p class="architecture-line">
+          Flutter UI -> ProcessService -> ProcessRepository -> Rust JSON ABI -> Rust core
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Mimameidr</span>
+      <span>Local telemetry, no analytics by default.</span>
+    </footer>
+  </body>
+</html>
