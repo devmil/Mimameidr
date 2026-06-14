@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Mimameidr Updates</title>
+    <link>https://example.invalid/mimameidr/releases.html</link>
+    <description>Mimameidr Sparkle appcast placeholder. Public builds are not published yet.</description>
+  </channel>
+</rss>

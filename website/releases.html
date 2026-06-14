@@ -4,14 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mimameidr Releases</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="assets/brand/mimameidr-icon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0c3340">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
       <nav>
         <a class="brand" href="index.html">
-          <span class="brand-mark">M</span>
-          <span>Mimameidr</span>
+          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="32" height="32">
+          <span class="brand-name">Mimameidr</span>
         </a>
         <div class="nav-links">
           <a href="index.html#features">Features</a>
@@ -26,6 +33,11 @@
           Public builds are not published yet. The first release work is tracked
           in the repository docs and will cover signing, notarization, packaging,
           and update metadata.
+        </p>
+        <p>
+          Sparkle update metadata will be published through the
+          <a href="appcast.xml">Mimameidr appcast</a> once signed releases are
+          available.
         </p>
       </section>
     </main>

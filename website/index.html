@@ -8,14 +8,29 @@
       name="description"
       content="Mimameidr is a Flutter and Rust process explorer for macOS, built as a technical counterpart to Yggdrasil Explorer."
     >
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="assets/brand/mimameidr-icon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0c3340">
+    <meta property="og:title" content="Mimameidr — macOS Process Explorer">
+    <meta property="og:description" content="A Flutter and Rust process explorer for macOS, built as a technical counterpart to Yggdrasil Explorer.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/brand/mimameidr-feature-graphic.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="500">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="assets/brand/mimameidr-feature-graphic.png">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header>
       <nav>
         <a class="brand" href="/">
-          <span class="brand-mark">M</span>
-          <span>Mimameidr</span>
+          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="32" height="32">
+          <span class="brand-name">Mimameidr</span>
         </a>
         <div class="nav-links">
           <a href="#features">Features</a>
@@ -28,8 +43,9 @@
     <main>
       <section class="hero">
         <div class="hero-copy">
+          <img class="hero-logo" src="assets/brand/mimameidr-logo.svg" alt="Mimameidr" width="590" height="150">
           <p class="eyebrow">macOS first · Flutter UI · Rust telemetry</p>
-          <h1>Mimameidr</h1>
+          <h1 class="sr-only">Mimameidr</h1>
           <p class="lede">
             A process explorer built to mirror Yggdrasil's behavior while
             testing a Flutter/Rust implementation path.

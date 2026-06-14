@@ -71,13 +71,10 @@ nav {
 }
 
 .brand-mark {
-  display: grid;
   width: 32px;
   height: 32px;
-  place-items: center;
   border-radius: 7px;
-  background: var(--teal);
-  color: white;
+  box-shadow: 0 5px 14px var(--shadow);
 }
 
 .nav-links a {
@@ -116,6 +113,24 @@ h1 {
   margin-bottom: 18px;
   font-size: clamp(54px, 8vw, 92px);
   line-height: 0.95;
+}
+
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.hero-logo {
+  display: block;
+  width: min(100%, 590px);
+  height: auto;
+  margin-bottom: 18px;
 }
 
 .lede {
@@ -300,5 +315,28 @@ footer {
 
   .inspector {
     display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  nav {
+    gap: 14px;
+  }
+
+  .brand-name {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
   }
 }
