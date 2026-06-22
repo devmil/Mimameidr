@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "verify": "./scripts/verify.sh",
-    "build:rust": "./scripts/build-rust.sh release"
+    "build:rust": "./scripts/build-rust.sh release",
+    "release": "./scripts/release.sh",
+    "release:package": "./scripts/package-release.sh",
+    "release:notarize": "./scripts/notarize-release.sh"
   }
 }
