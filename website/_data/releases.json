@@ -2,7 +2,20 @@
   "latest": null,
   "history": [],
   "beta": {
-    "latest": null,
+    "latest": {
+      "version": "1.0.0-beta.1",
+      "build": 1,
+      "released": "2026-06-23",
+      "file": "Mimameidr-1.0.0-beta.1-1.dmg",
+      "downloadPath": "/download/Mimameidr-1.0.0-beta.1-1.dmg",
+      "notesPath": "/download/Mimameidr-1.0.0-beta.1-1.html",
+      "sha256": "a55f412c15c3a143ee10a9816bf38a924b30af55b02d82cd114ee3fa08edd3ea",
+      "sizeBytes": 26303086,
+      "minMacOS": "14.0",
+      "architectures": "Apple Silicon & Intel",
+      "channel": "beta",
+      "supersededByStable": false
+    },
     "history": []
   }
 }
