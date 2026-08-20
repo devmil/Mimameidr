@@ -283,6 +283,36 @@ dd {
   overflow-wrap: anywhere;
 }
 
+.platform-downloads {
+  margin-top: 22px;
+}
+
+.platform-downloads ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.platform-downloads li {
+  display: grid;
+  grid-template-columns: minmax(170px, max-content) 1fr;
+  gap: 6px 14px;
+  align-items: center;
+}
+
+.platform-downloads li span,
+.platform-downloads li code {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.platform-downloads li code {
+  grid-column: 2;
+  overflow-wrap: anywhere;
+}
+
 .release-history ul {
   margin: 0;
   padding-left: 20px;
@@ -352,6 +382,14 @@ footer {
 }
 
 @media (max-width: 520px) {
+  .platform-downloads li {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-downloads li code {
+    grid-column: 1;
+  }
+
   nav {
     gap: 14px;
   }
