@@ -3,20 +3,81 @@
   "history": [],
   "beta": {
     "latest": {
-      "version": "1.0.0-beta.9",
-      "build": 9,
-      "released": "2026-08-09",
-      "file": "Mimameidr-1.0.0-beta.9-9.dmg",
-      "downloadPath": "/download/Mimameidr-1.0.0-beta.9-9.dmg",
-      "notesPath": "/download/Mimameidr-1.0.0-beta.9-9.html",
-      "sha256": "1cdf1f7667a6e92c27dc4fa2b00465ef4934f4cdc4f9a148c5c4720d88b995c1",
-      "sizeBytes": 27031883,
-      "minMacOS": "14.0",
-      "architectures": "Apple Silicon & Intel",
+      "version": "1.0.0-beta.10",
+      "build": 12,
+      "released": "2026-09-20",
+      "notesPath": "/download/Mimameidr-1.0.0-beta.10-12.html",
       "channel": "beta",
+      "artifacts": [
+        {
+          "file": "Mimameidr-1.0.0-beta.10-12.dmg",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.10-12/Mimameidr-1.0.0-beta.10-12.dmg",
+          "sha256": "35a644c87b622b73f854f23eeba4008992dacb4977875533051e8d36d6cea44e",
+          "sizeBytes": 31523213,
+          "platform": "macos",
+          "format": "dmg",
+          "architectures": "Apple Silicon",
+          "minimumSystem": "macOS 14.0",
+          "sparkleSignature": "BW41Xdf9oKoOwIdhiYh5TEHD/QdM4wVy8IroYeT3VEHGyUK+vSYX9YQnmkhA9SRIcJj3Y6uUg9Z4CoglgKKWDQ=="
+        },
+        {
+          "file": "Mimameidr-1.0.0-beta.10-12-linux-x86_64.AppImage",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.10-12/Mimameidr-1.0.0-beta.10-12-linux-x86_64.AppImage",
+          "sha256": "1380db2e423b60670ada0a891e6ca7fb4aa1efbae0779b9a2f52e649a24e28ef",
+          "sizeBytes": 18651640,
+          "platform": "linux",
+          "format": "appimage",
+          "architectures": "x86_64",
+          "minimumSystem": "Linux"
+        },
+        {
+          "file": "Mimameidr-1.0.0-beta.10-12-linux-x86_64.deb",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.10-12/Mimameidr-1.0.0-beta.10-12-linux-x86_64.deb",
+          "sha256": "eca67d9cd4a2ccc00e65a536f53019409c57cd8b07eece21242d628d6d66f8e7",
+          "sizeBytes": 13771432,
+          "platform": "linux",
+          "format": "deb",
+          "architectures": "x86_64",
+          "minimumSystem": "Linux"
+        },
+        {
+          "file": "Mimameidr-1.0.0-beta.10-12-linux-x86_64.rpm",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.10-12/Mimameidr-1.0.0-beta.10-12-linux-x86_64.rpm",
+          "sha256": "701e4134290d030c80f9803bfda8b9171537086bf108b2a05bb03a7d318aa233",
+          "sizeBytes": 10614206,
+          "platform": "linux",
+          "format": "rpm",
+          "architectures": "x86_64",
+          "minimumSystem": "Linux"
+        },
+        {
+          "file": "Mimameidr-1.0.0-beta.10-12-linux-x86_64.tar.gz",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.10-12/Mimameidr-1.0.0-beta.10-12-linux-x86_64.tar.gz",
+          "sha256": "1545dbf6632196eefd9b8e9cc5cdff14df01e84d3b2a699d7eb73c5e8fd7c044",
+          "sizeBytes": 19594630,
+          "platform": "linux",
+          "format": "tar",
+          "architectures": "x86_64",
+          "minimumSystem": "Linux"
+        }
+      ],
       "supersededByStable": false
     },
     "history": [
+      {
+        "version": "1.0.0-beta.9",
+        "build": 9,
+        "released": "2026-08-09",
+        "file": "Mimameidr-1.0.0-beta.9-9.dmg",
+        "downloadPath": "/download/Mimameidr-1.0.0-beta.9-9.dmg",
+        "notesPath": "/download/Mimameidr-1.0.0-beta.9-9.html",
+        "sha256": "1cdf1f7667a6e92c27dc4fa2b00465ef4934f4cdc4f9a148c5c4720d88b995c1",
+        "sizeBytes": 27031883,
+        "minMacOS": "14.0",
+        "architectures": "Apple Silicon & Intel",
+        "channel": "beta",
+        "supersededByStable": false
+      },
       {
         "version": "1.0.0-beta.8",
         "build": 8,
@@ -58,77 +119,8 @@
         "architectures": "Apple Silicon & Intel",
         "channel": "beta",
         "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.5",
-        "build": 5,
-        "released": "2026-07-03",
-        "file": "Mimameidr-1.0.0-beta.5-5.dmg",
-        "downloadPath": "/download/Mimameidr-1.0.0-beta.5-5.dmg",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.5-5.html",
-        "sha256": "77257f90d17d41500a013571ee04657c404039702d4532e10cd2d278cfb0486b",
-        "sizeBytes": 27009703,
-        "minMacOS": "14.0",
-        "architectures": "Apple Silicon & Intel",
-        "channel": "beta",
-        "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.4",
-        "build": 4,
-        "released": "2026-06-30",
-        "file": "Mimameidr-1.0.0-beta.4-4.dmg",
-        "downloadPath": "/download/Mimameidr-1.0.0-beta.4-4.dmg",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.4-4.html",
-        "sha256": "5c6b3baf39ffcdb0d9c8079ba7415b0423567111b302de62ea2fcd46b0e8e03e",
-        "sizeBytes": 26996880,
-        "minMacOS": "14.0",
-        "architectures": "Apple Silicon & Intel",
-        "channel": "beta",
-        "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.3",
-        "build": 3,
-        "released": "2026-06-30",
-        "file": "Mimameidr-1.0.0-beta.3-3.dmg",
-        "downloadPath": "/download/Mimameidr-1.0.0-beta.3-3.dmg",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.3-3.html",
-        "sha256": "1269b969c09e111966dc2fc8224ccac9fa96e243616f17d73b59b599ae990c49",
-        "sizeBytes": 26994502,
-        "minMacOS": "14.0",
-        "architectures": "Apple Silicon & Intel",
-        "channel": "beta",
-        "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.2",
-        "build": 2,
-        "released": "2026-06-28",
-        "file": "Mimameidr-1.0.0-beta.2-2.dmg",
-        "downloadPath": "/download/Mimameidr-1.0.0-beta.2-2.dmg",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.2-2.html",
-        "sha256": "5259aa0047752c84d8efd09680e4aef021393f428024e4c4037fe2c6cf4aa915",
-        "sizeBytes": 26717478,
-        "minMacOS": "14.0",
-        "architectures": "Apple Silicon & Intel",
-        "channel": "beta",
-        "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.1",
-        "build": 1,
-        "released": "2026-06-23",
-        "file": "Mimameidr-1.0.0-beta.1-1.dmg",
-        "downloadPath": "/download/Mimameidr-1.0.0-beta.1-1.dmg",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.1-1.html",
-        "sha256": "a55f412c15c3a143ee10a9816bf38a924b30af55b02d82cd114ee3fa08edd3ea",
-        "sizeBytes": 26303086,
-        "minMacOS": "14.0",
-        "architectures": "Apple Silicon & Intel",
-        "channel": "beta",
-        "supersededByStable": false
       }
     ]
-  }
+  },
+  "schemaVersion": 2
 }
