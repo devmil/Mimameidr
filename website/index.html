@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mimameidr - Flutter/Rust Process Explorer</title>
+    <title>Mimameidr — Process Explorer for macOS, Linux, and Windows</title>
     <meta
       name="description"
-      content="Mimameidr is a Flutter and Rust process explorer for Windows, Linux, and macOS, built as a technical counterpart to Yggdrasil Explorer."
+      content="Mimameidr is a fast desktop process explorer for macOS, Linux, and Windows: a stable process tree, live CPU, memory, network and storage metrics, and a detailed inspector."
     >
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="assets/brand/mimameidr-icon.svg" type="image/svg+xml">
@@ -14,102 +14,225 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#0c3340">
-    <meta property="og:title" content="Mimameidr — Windows, Linux, and macOS Process Explorer">
-    <meta property="og:description" content="A Flutter and Rust process explorer for Windows, Linux, and macOS, built as a technical counterpart to Yggdrasil Explorer.">
+    <link rel="preload" href="assets/fonts/Geist-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+    <meta name="theme-color" content="#0b151a">
+    <meta property="og:title" content="Mimameidr — Process Explorer for macOS, Linux, and Windows">
+    <meta property="og:description" content="A stable process tree with live CPU, memory, network, and storage metrics and a detailed inspector.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/brand/mimameidr-feature-graphic.png">
+    <meta property="og:url" content="https://devmil.de/Mimameidr/">
+    <meta property="og:image" content="https://devmil.de/Mimameidr/assets/brand/mimameidr-feature-graphic.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="500">
+    <meta property="og:image:alt" content="The Mimameidr app icon next to the name Mimameidr">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="assets/brand/mimameidr-feature-graphic.png">
+    <meta name="twitter:image" content="https://devmil.de/Mimameidr/assets/brand/mimameidr-feature-graphic.png">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <header>
-      <nav>
-        <a class="brand" href="/">
-          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="32" height="32">
+    <!-- Icons: Lucide (lucide-static 1.37.0, ISC), the set Meridian ships in the app. -->
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-list-tree" viewBox="0 0 24 24"><path d="M8 5h13"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="M3 10a2 2 0 0 0 2 2h3"/><path d="M3 5v12a2 2 0 0 0 2 2h3"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+      <symbol id="i-hard-drive" viewBox="0 0 24 24"><path d="M10 16h.01"/><path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M21.946 12.013H2.054"/><path d="M6 16h.01"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav aria-label="Main">
+        <a class="brand" href="./">
+          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="28" height="28">
           <span class="brand-name">Mimameidr</span>
         </a>
         <div class="nav-links">
           <a href="#features">Features</a>
-          <a href="#architecture">Architecture</a>
-          <a href="releases.html">Releases</a>
+          <a href="#platforms">Platforms</a>
+          <a class="nav-cta" href="releases.html">Download</a>
         </div>
       </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <img class="hero-logo" src="assets/brand/mimameidr-logo.svg" alt="Mimameidr" width="590" height="150">
-          <p class="eyebrow">Windows + Linux + macOS · Flutter UI · Rust telemetry</p>
-          <h1 class="sr-only">Mimameidr</h1>
-          <p class="lede">
-            A process explorer built to mirror Yggdrasil's behavior while
-            testing a Flutter/Rust implementation path.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="releases.html">Downloads</a>
-            <a class="button secondary" href="https://github.com/">Source</a>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Process explorer · macOS · Linux · Windows</p>
+            <h1 id="hero-title">Every process, in a tree that holds still.</h1>
+            <p class="lede">
+              Mimameidr shows what your computer is running as a calm, stable
+              process tree with live CPU, memory, network, and storage metrics,
+              and an inspector for the details that matter.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="releases.html">
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Download
+              </a>
+              <a class="button ghost" href="#features">
+                See what it does
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+              </a>
+            </div>
+            <p class="hero-note">Beta · Signed for macOS · RPM, DEB, AppImage · Windows installer</p>
           </div>
+          <figure class="hero-art">
+            <img
+              src="assets/brand/mimameidr-feature-graphic.png"
+              alt="The Mimameidr app icon, a glass M drawn as connected process nodes, next to the name Mimameidr"
+              width="1024"
+              height="500"
+            >
+          </figure>
         </div>
-        <div class="app-shot" aria-label="Process explorer interface preview">
-          <div class="toolbar">
-            <span></span>
-            <span></span>
-            <span></span>
+      </section>
+
+      <section class="preview-band" aria-label="App preview">
+        <div class="app-window" role="img" aria-label="Mimameidr showing a process tree with the Mimameidr process selected and its CPU and memory history in the inspector">
+          <div class="app-toolbar">
+            <span class="lights"><i></i><i></i><i></i></span>
+            <span class="app-title"><img src="assets/brand/mimameidr-icon.svg" alt="" width="16" height="16">Mimameidr</span>
+            <span class="app-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Search processes</span>
+            <span class="app-tools">
+              <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>
+            </span>
           </div>
           <div class="app-body">
-            <div class="process-list">
-              <div class="row strong"><b>1</b><span>launchd</span><em>42 MB</em></div>
-              <div class="row"><b>412</b><span>WindowServer</span><em>382 MB</em></div>
-              <div class="row active"><b>830</b><span>Mimameidr</span><em>96 MB</em></div>
-              <div class="row"><b>991</b><span>rust-analyzer</span><em>1.2 GB</em></div>
-              <div class="row"><b>1402</b><span>Safari Web Content</span><em>714 MB</em></div>
+            <div class="app-panel tree">
+              <div class="tree-head"><span>Process</span><span>PID</span><span>CPU</span><span>Memory</span></div>
+              <div class="tree-row" style="--heat: 0.22"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>launchd</span><span>1</span><span>0.4%</span><span>42 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.55"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>WindowServer</span><span>412</span><span>6.1%</span><span>382 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.18"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>Finder</span><span>588</span><span>0.2%</span><span>188 MB</span></div>
+              <div class="tree-row d1 selected"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Mimameidr</span><span>830</span><span>1.8%</span><span>96 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.9"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>Code</span><span>902</span><span>12.4%</span><span>1.1 GB</span></div>
+              <div class="tree-row d2" style="--heat: 0.7"><span class="name"><span class="chev-space"></span>rust-analyzer</span><span>991</span><span>9.7%</span><span>1.2 GB</span></div>
+              <div class="tree-row d2" style="--heat: 0.1"><span class="name"><span class="chev-space"></span>Code Helper</span><span>1044</span><span>0.6%</span><span>214 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.3"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Safari</span><span>1402</span><span>2.3%</span><span>714 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.05"><span class="name"><span class="chev-space"></span>Terminal</span><span>1518</span><span>0.1%</span><span>64 MB</span></div>
+              <div class="tree-row d1" style="--heat: 0.4"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Docker</span><span>1733</span><span>3.2%</span><span>2.4 GB</span></div>
             </div>
-            <div class="inspector">
-              <h2>Mimameidr</h2>
-              <dl>
-                <dt>PID</dt><dd>830</dd>
-                <dt>Status</dt><dd>running</dd>
-                <dt>Executable</dt><dd>/usr/bin/mimameidr</dd>
+            <div class="app-panel inspector">
+              <div class="inspector-head">
+                <img src="assets/brand/mimameidr-icon.svg" alt="" width="28" height="28">
+                <div><strong>Mimameidr</strong><span>PID 830 · running</span></div>
+              </div>
+              <div class="tabs"><span class="on">Overview</span><span>Details</span><span>Files</span><span>Threads</span></div>
+              <dl class="metrics">
+                <div><dt>CPU</dt><dd>1.8%</dd></div>
+                <div><dt>Memory</dt><dd>96 MB</dd></div>
+                <div><dt>Threads</dt><dd>24</dd></div>
               </dl>
+              <div class="chart" aria-hidden="true">
+                <span style="--v: .35"></span><span style="--v: .5"></span><span style="--v: .42"></span><span style="--v: .7"></span><span style="--v: .55"></span><span style="--v: .3"></span><span style="--v: .46"></span><span style="--v: .62"></span><span style="--v: .8"></span><span style="--v: .58"></span><span style="--v: .4"></span><span style="--v: .52"></span><span style="--v: .66"></span><span style="--v: .48"></span><span style="--v: .74"></span><span style="--v: .9"></span>
+              </div>
+              <div class="chart split" aria-hidden="true">
+                <span style="--v: .3; --w: .2"></span><span style="--v: .5; --w: .35"></span><span style="--v: .2; --w: .6"></span><span style="--v: .6; --w: .3"></span><span style="--v: .45; --w: .5"></span><span style="--v: .25; --w: .2"></span><span style="--v: .7; --w: .4"></span><span style="--v: .35; --w: .55"></span><span style="--v: .5; --w: .25"></span><span style="--v: .8; --w: .45"></span><span style="--v: .4; --w: .3"></span><span style="--v: .55; --w: .6"></span><span style="--v: .3; --w: .35"></span><span style="--v: .65; --w: .2"></span><span style="--v: .45; --w: .5"></span><span style="--v: .6; --w: .4"></span>
+              </div>
             </div>
           </div>
+          <div class="app-status"><span class="dot"></span>Live · 1 s refresh<span class="spacer"></span>412 processes</div>
         </div>
       </section>
 
-      <section id="features" class="band">
-        <h2>Built for parity experiments</h2>
-        <div class="grid">
-          <article>
-            <h3>Stable tree target</h3>
-            <p>Process identity and tree-lock behavior are planned against the Yggdrasil reference.</p>
+      <section id="features" class="section" aria-labelledby="features-title">
+        <div class="section-head">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">Built for reading a busy machine at a glance</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-list-tree"/></svg></span>
+            <h3>A stable process tree</h3>
+            <p>Parents and children stay where they are while metrics update, so you can follow a process without it jumping around.</p>
           </article>
-          <article>
-            <h3>Rust telemetry</h3>
-            <p>The native core owns process enumeration, metrics, actions, and inspection across Windows, Linux, and macOS.</p>
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg></span>
+            <h3>Tree lock</h3>
+            <p>Freeze the order while you investigate. Values keep refreshing and rows stay put.</p>
           </article>
-          <article>
-            <h3>Flutter desktop</h3>
-            <p>The UI uses service abstractions so platform behavior can evolve without widget-level FFI.</p>
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+            <h3>Search in place</h3>
+            <p>Type to highlight matching rows and jump between results without hiding the rest of the tree.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
+            <h3>Live metrics and history</h3>
+            <p>CPU, memory, network, and storage per process and per subtree, with history charts you can hover for exact values.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-hard-drive"/></svg></span>
+            <h3>A detailed inspector</h3>
+            <p>Open files, sockets, threads, and security details, with clear hints when the system restricts access.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span>
+            <h3>Snapshots</h3>
+            <p>Capture the tree, name it, export it, and open it again later to compare with what is running now.</p>
           </article>
         </div>
       </section>
 
-      <section id="architecture" class="band muted">
-        <h2>Architecture</h2>
-        <p class="architecture-line">
-          Flutter UI -> ProcessService -> ProcessRepository -> flutter_rust_bridge -> Rust core
-        </p>
+      <section id="platforms" class="section platforms" aria-labelledby="platforms-title">
+        <div class="section-head">
+          <p class="eyebrow">Platforms</p>
+          <h2 id="platforms-title">Native builds for your desktop</h2>
+          <p class="section-lede">One app with the same behavior everywhere. Each build is made natively on its platform from the same release.</p>
+        </div>
+        <div class="platform-grid">
+          <a class="platform" href="releases.html">
+            <span class="platform-logo"><img src="assets/platform/apple.svg" alt=""></span>
+            <span class="platform-copy"><strong>macOS</strong><span>Signed, notarized DMG for Apple silicon with automatic updates.</span></span>
+          </a>
+          <a class="platform" href="releases.html">
+            <span class="platform-logo"><img src="assets/platform/linux.svg" alt=""></span>
+            <span class="platform-copy"><strong>Linux</strong><span>RPM, DEB, AppImage, and a portable tarball, with per-process network telemetry.</span></span>
+          </a>
+          <a class="platform" href="releases.html">
+            <span class="platform-logo"><img src="assets/platform/windows.svg" alt=""></span>
+            <span class="platform-copy"><strong>Windows</strong><span>Installer and portable ZIP for 64-bit Windows.</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section principles" aria-labelledby="principles-title">
+        <h2 id="principles-title" class="sr-only">How Mimameidr is built</h2>
+        <div class="principle">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg></span>
+          <div><h3>A Rust core</h3><p>Process enumeration, metrics, and actions run in a native Rust engine, so the interface stays responsive.</p></div>
+        </div>
+        <div class="principle">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
+          <div><h3>Local only</h3><p>Everything stays on your machine. No accounts, and no analytics.</p></div>
+        </div>
+      </section>
+
+      <section class="cta" aria-labelledby="cta-title">
+        <img src="assets/brand/mimameidr-icon.svg" alt="" width="72" height="72">
+        <h2 id="cta-title">Try Mimameidr</h2>
+        <p>Downloads for macOS, Linux, and Windows, each with a SHA&#8209;256 checksum.</p>
+        <a class="button primary" href="releases.html">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          Get the latest build
+        </a>
       </section>
     </main>
 
-    <footer>
-      <span>Mimameidr</span>
-      <span>Local telemetry, no analytics by default.</span>
+    <footer class="site-footer">
+      <span class="footer-brand"><img src="assets/brand/mimameidr-icon.svg" alt="" width="20" height="20">Mimameidr</span>
+      <span class="footer-links"><a href="releases.html">Downloads</a><a href="download/appcast.xml">macOS appcast</a></span>
+      <span>Local telemetry, no analytics.</span>
     </footer>
   </body>
 </html>
