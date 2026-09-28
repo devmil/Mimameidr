@@ -3,78 +3,78 @@
   "history": [],
   "beta": {
     "latest": {
-      "version": "1.0.0-beta.18",
-      "build": 23,
-      "released": "2026-09-27",
-      "notesPath": "/download/Mimameidr-1.0.0-beta.18-23.html",
+      "version": "1.0.0-beta.19",
+      "build": 24,
+      "released": "2026-09-28",
+      "notesPath": "/download/Mimameidr-1.0.0-beta.19-24.html",
       "channel": "beta",
       "artifacts": [
         {
-          "file": "Mimameidr-1.0.0-beta.18-23.dmg",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23.dmg",
-          "sha256": "bf458f202ea48e07f4ce442ff9ff23890ac9324f09dc07f861e3603e1c69b6ba",
-          "sizeBytes": 28509945,
+          "file": "Mimameidr-1.0.0-beta.19-24.dmg",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24.dmg",
+          "sha256": "9c39a2a2aed470ceb5da836290ea4653de00e19feaab9591d5c20febacc419c5",
+          "sizeBytes": 28482190,
           "platform": "macos",
           "format": "dmg",
           "architectures": "Apple Silicon",
           "minimumSystem": "macOS 14.0",
-          "sparkleSignature": "Xj0+cp0k10bVjZjLg/A0ZLa3plnyaRK1+GU8Tl/g6zj959PiZHqalzIVN1Hh2cM2GNR9XJUzRB8Nlcg3MVDSDQ=="
+          "sparkleSignature": "7mj0xA3Niw+FBWPEvsSnxBOHTIoi2cjhmQmiactp1Na7gB1uv7Y+vqcXwYk5oPe0vNjVVNGJptV+fdXFJJmHDw=="
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.AppImage",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.AppImage",
-          "sha256": "aa7ad2937ed23295053dd079b71ad81ca2c7a185e3fb8358d98e96cd5a3ac365",
-          "sizeBytes": 17959416,
+          "file": "Mimameidr-1.0.0-beta.19-24-linux-x86_64.AppImage",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-linux-x86_64.AppImage",
+          "sha256": "37ef550e3e203f9da1465d104e730070ef5ccf463700be1604a715c3b157881d",
+          "sizeBytes": 18041336,
           "platform": "linux",
           "format": "appimage",
           "architectures": "x86_64",
           "minimumSystem": "Linux"
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.deb",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.deb",
-          "sha256": "d79d69f24ff3b351ce370c833f08c7524ca28cf0caa057e0bd08aa6024bfa809",
-          "sizeBytes": 13272552,
+          "file": "Mimameidr-1.0.0-beta.19-24-linux-x86_64.deb",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-linux-x86_64.deb",
+          "sha256": "ea9462ec7c1ba9a61801bf6515edf2fbc1611de49d660d87f081cbb75b5797d3",
+          "sizeBytes": 13315108,
           "platform": "linux",
           "format": "deb",
           "architectures": "x86_64",
           "minimumSystem": "Linux"
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.rpm",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.rpm",
-          "sha256": "e85643cc9896db4b16590aaefbad30b20acd89d72e2547fc87f2a5a6fddba258",
-          "sizeBytes": 10109667,
+          "file": "Mimameidr-1.0.0-beta.19-24-linux-x86_64.rpm",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-linux-x86_64.rpm",
+          "sha256": "1d6a44c159131134fa4a605609bd6b22cdf7d615d798affaa658c01ed4773c06",
+          "sizeBytes": 10123992,
           "platform": "linux",
           "format": "rpm",
           "architectures": "x86_64",
           "minimumSystem": "Linux"
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.tar.gz",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.tar.gz",
-          "sha256": "512a7bb6586f2dfb7251c1f09c74fc232acc8129e965c961ee727ff7121293df",
-          "sizeBytes": 18832222,
+          "file": "Mimameidr-1.0.0-beta.19-24-linux-x86_64.tar.gz",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-linux-x86_64.tar.gz",
+          "sha256": "9aebc13bfe8dcb13bbee6a4abab91b245d705b970b7408d7dfc32ed49754a13f",
+          "sizeBytes": 18905511,
           "platform": "linux",
           "format": "tar",
           "architectures": "x86_64",
           "minimumSystem": "Linux"
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-windows-x86_64.msi",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-windows-x86_64.msi",
-          "sha256": "1bb4f58f1d6c0807be03e78208fd54c9e6f28d0f476da4bd9f54337116cd98f6",
-          "sizeBytes": 11165696,
+          "file": "Mimameidr-1.0.0-beta.19-24-windows-x86_64.msi",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-windows-x86_64.msi",
+          "sha256": "ac2b044e9c0c212150f8d4df923bdcf3525c00f3ee5033af5dca0cbd12ba5550",
+          "sizeBytes": 11177984,
           "platform": "windows",
           "format": "msi",
           "architectures": "x86_64",
           "minimumSystem": "Windows 10 1809"
         },
         {
-          "file": "Mimameidr-1.0.0-beta.18-23-windows-x86_64.zip",
-          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-windows-x86_64.zip",
-          "sha256": "c40785e03da4f418a6c9dea7c15420d34dd83bcb967b67c4df1041f923d87a4c",
-          "sizeBytes": 14115584,
+          "file": "Mimameidr-1.0.0-beta.19-24-windows-x86_64.zip",
+          "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.19-24/Mimameidr-1.0.0-beta.19-24-windows-x86_64.zip",
+          "sha256": "3df20bc257c8050bcc7d07ad4ff83bc7e872160410a154a7be4142647bc6ad9c",
+          "sizeBytes": 14132740,
           "platform": "windows",
           "format": "zip",
           "architectures": "x86_64",
@@ -84,6 +84,87 @@
       "supersededByStable": false
     },
     "history": [
+      {
+        "version": "1.0.0-beta.18",
+        "build": 23,
+        "released": "2026-09-27",
+        "notesPath": "/download/Mimameidr-1.0.0-beta.18-23.html",
+        "channel": "beta",
+        "artifacts": [
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23.dmg",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23.dmg",
+            "sha256": "bf458f202ea48e07f4ce442ff9ff23890ac9324f09dc07f861e3603e1c69b6ba",
+            "sizeBytes": 28509945,
+            "platform": "macos",
+            "format": "dmg",
+            "architectures": "Apple Silicon",
+            "minimumSystem": "macOS 14.0",
+            "sparkleSignature": "Xj0+cp0k10bVjZjLg/A0ZLa3plnyaRK1+GU8Tl/g6zj959PiZHqalzIVN1Hh2cM2GNR9XJUzRB8Nlcg3MVDSDQ=="
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.AppImage",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.AppImage",
+            "sha256": "aa7ad2937ed23295053dd079b71ad81ca2c7a185e3fb8358d98e96cd5a3ac365",
+            "sizeBytes": 17959416,
+            "platform": "linux",
+            "format": "appimage",
+            "architectures": "x86_64",
+            "minimumSystem": "Linux"
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.deb",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.deb",
+            "sha256": "d79d69f24ff3b351ce370c833f08c7524ca28cf0caa057e0bd08aa6024bfa809",
+            "sizeBytes": 13272552,
+            "platform": "linux",
+            "format": "deb",
+            "architectures": "x86_64",
+            "minimumSystem": "Linux"
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.rpm",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.rpm",
+            "sha256": "e85643cc9896db4b16590aaefbad30b20acd89d72e2547fc87f2a5a6fddba258",
+            "sizeBytes": 10109667,
+            "platform": "linux",
+            "format": "rpm",
+            "architectures": "x86_64",
+            "minimumSystem": "Linux"
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-linux-x86_64.tar.gz",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-linux-x86_64.tar.gz",
+            "sha256": "512a7bb6586f2dfb7251c1f09c74fc232acc8129e965c961ee727ff7121293df",
+            "sizeBytes": 18832222,
+            "platform": "linux",
+            "format": "tar",
+            "architectures": "x86_64",
+            "minimumSystem": "Linux"
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-windows-x86_64.msi",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-windows-x86_64.msi",
+            "sha256": "1bb4f58f1d6c0807be03e78208fd54c9e6f28d0f476da4bd9f54337116cd98f6",
+            "sizeBytes": 11165696,
+            "platform": "windows",
+            "format": "msi",
+            "architectures": "x86_64",
+            "minimumSystem": "Windows 10 1809"
+          },
+          {
+            "file": "Mimameidr-1.0.0-beta.18-23-windows-x86_64.zip",
+            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.18-23/Mimameidr-1.0.0-beta.18-23-windows-x86_64.zip",
+            "sha256": "c40785e03da4f418a6c9dea7c15420d34dd83bcb967b67c4df1041f923d87a4c",
+            "sizeBytes": 14115584,
+            "platform": "windows",
+            "format": "zip",
+            "architectures": "x86_64",
+            "minimumSystem": "Windows 10 1809"
+          }
+        ],
+        "supersededByStable": false
+      },
       {
         "version": "1.0.0-beta.17",
         "build": 22,
@@ -299,67 +380,6 @@
             "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.13-15/Mimameidr-1.0.0-beta.13-15-linux-x86_64.tar.gz",
             "sha256": "1a913bb2e459973aad827942b24f72d519829bbc95a911ace0ce22dda42bea97",
             "sizeBytes": 19595283,
-            "platform": "linux",
-            "format": "tar",
-            "architectures": "x86_64",
-            "minimumSystem": "Linux"
-          }
-        ],
-        "supersededByStable": false
-      },
-      {
-        "version": "1.0.0-beta.12",
-        "build": 14,
-        "released": "2026-09-20",
-        "notesPath": "/download/Mimameidr-1.0.0-beta.12-14.html",
-        "channel": "beta",
-        "artifacts": [
-          {
-            "file": "Mimameidr-1.0.0-beta.12-14.dmg",
-            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.12-14/Mimameidr-1.0.0-beta.12-14.dmg",
-            "sha256": "3de73ae605a666ff67f88c4ed609bd3bcb82b7fe6a2c9a2238a1194426912659",
-            "sizeBytes": 31509127,
-            "platform": "macos",
-            "format": "dmg",
-            "architectures": "Apple Silicon",
-            "minimumSystem": "macOS 14.0",
-            "sparkleSignature": "r0J0k6T3kMXqaSzYQMQPn1nof9VZ0xCjl9iUBpTjl0M/b+LryCjYKH9Fo7nue0HAkZdBXWRyQn79sEnIKVFkBg=="
-          },
-          {
-            "file": "Mimameidr-1.0.0-beta.12-14-linux-x86_64.AppImage",
-            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.12-14/Mimameidr-1.0.0-beta.12-14-linux-x86_64.AppImage",
-            "sha256": "a4743a1bbbcea80f99dda54b406cbf462c8293059910bdd082fb330681fbe406",
-            "sizeBytes": 18651640,
-            "platform": "linux",
-            "format": "appimage",
-            "architectures": "x86_64",
-            "minimumSystem": "Linux"
-          },
-          {
-            "file": "Mimameidr-1.0.0-beta.12-14-linux-x86_64.deb",
-            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.12-14/Mimameidr-1.0.0-beta.12-14-linux-x86_64.deb",
-            "sha256": "102795006c97da81d967a539c999853951da479cc75d79e5ef0093e22634125d",
-            "sizeBytes": 13770140,
-            "platform": "linux",
-            "format": "deb",
-            "architectures": "x86_64",
-            "minimumSystem": "Linux"
-          },
-          {
-            "file": "Mimameidr-1.0.0-beta.12-14-linux-x86_64.rpm",
-            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.12-14/Mimameidr-1.0.0-beta.12-14-linux-x86_64.rpm",
-            "sha256": "9985ab42374544a04c13aae3f1712165dcb0b14a4a00c01be1e7bf9079e50203",
-            "sizeBytes": 10614021,
-            "platform": "linux",
-            "format": "rpm",
-            "architectures": "x86_64",
-            "minimumSystem": "Linux"
-          },
-          {
-            "file": "Mimameidr-1.0.0-beta.12-14-linux-x86_64.tar.gz",
-            "downloadPath": "https://github.com/devmil/Mimameidr/releases/download/v1.0.0-beta.12-14/Mimameidr-1.0.0-beta.12-14-linux-x86_64.tar.gz",
-            "sha256": "1ea4e0d913e40d62d8d729b2e557c6d03a8d2556575894eb76692c06fab9091a",
-            "sizeBytes": 19595121,
             "platform": "linux",
             "format": "tar",
             "architectures": "x86_64",
