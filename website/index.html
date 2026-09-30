@@ -6,7 +6,7 @@
     <title>Mimameidr — Process Explorer for macOS, Linux, and Windows</title>
     <meta
       name="description"
-      content="Mimameidr is a fast desktop process explorer for macOS, Linux, and Windows: a stable process tree, live CPU, memory, network and storage metrics, and a detailed inspector."
+      content="Mimameidr is a desktop process explorer for macOS, Linux, and Windows. It shows processes as a tree with CPU, memory, network, and storage figures and an inspector for details."
     >
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="assets/brand/mimameidr-icon.svg" type="image/svg+xml">
@@ -15,9 +15,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/fonts/Geist-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
-    <meta name="theme-color" content="#0b151a">
+    <meta name="theme-color" content="#e8ecee" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b151a" media="(prefers-color-scheme: dark)">
     <meta property="og:title" content="Mimameidr — Process Explorer for macOS, Linux, and Windows">
-    <meta property="og:description" content="A stable process tree with live CPU, memory, network, and storage metrics and a detailed inspector.">
+    <meta property="og:description" content="Processes as a tree, with CPU, memory, network, and storage figures and an inspector for details.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://devmil.de/Mimameidr/">
     <meta property="og:image" content="https://devmil.de/Mimameidr/assets/brand/mimameidr-feature-graphic.png">
@@ -27,23 +28,34 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://devmil.de/Mimameidr/assets/brand/mimameidr-feature-graphic.png">
     <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="site.js" defer></script>
   </head>
   <body>
     <!-- Icons: Lucide (lucide-static 1.37.0, ISC), the set Meridian ships in the app. -->
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
-      <symbol id="i-list-tree" viewBox="0 0 24 24"><path d="M8 5h13"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="M3 10a2 2 0 0 0 2 2h3"/><path d="M3 5v12a2 2 0 0 0 2 2h3"/></symbol>
       <symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
       <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
-      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
-      <symbol id="i-hard-drive" viewBox="0 0 24 24"><path d="M10 16h.01"/><path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M21.946 12.013H2.054"/><path d="M6 16h.01"/></symbol>
       <symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="i-panel-right" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol>
+      <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"/></symbol>
       <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
       <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2"/><path d="M12 2v2"/><path d="M17 20v2"/><path d="M17 2v2"/><path d="M2 12h2"/><path d="M2 17h2"/><path d="M2 7h2"/><path d="M20 12h2"/><path d="M20 17h2"/><path d="M20 7h2"/><path d="M7 20v2"/><path d="M7 2v2"/><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></symbol>
+      <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
       <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
-      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
       <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
       <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
       <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-case" viewBox="0 0 24 24"><path d="m2 16 4.039-9.69a.5.5 0 0 1 .923 0L11 16"/><path d="M22 9v7"/><path d="M3.304 13h6.392"/><circle cx="18.5" cy="12.5" r="3.5"/></symbol>
+      <symbol id="i-word" viewBox="0 0 24 24"><circle cx="7" cy="12" r="3"/><path d="M10 9v6"/><circle cx="17" cy="12" r="3"/><path d="M14 7v8"/><path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1"/></symbol>
+      <symbol id="i-bookmark-plus" viewBox="0 0 24 24"><path d="M12 7v6"/><path d="M15 10H9"/><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-list-filter" viewBox="0 0 24 24"><path d="M2 5h20"/><path d="M6 12h12"/><path d="M9 19h6"/></symbol>
+      <symbol id="i-circle-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></symbol>
+      <symbol id="i-circle-minus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
     </svg>
 
     <a class="skip-link" href="#main">Skip to content</a>
@@ -51,188 +63,311 @@
     <header class="site-header">
       <nav aria-label="Main">
         <a class="brand" href="./">
-          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="28" height="28">
+          <img class="brand-mark" src="assets/brand/mimameidr-icon.svg" alt="" width="26" height="26">
           <span class="brand-name">Mimameidr</span>
         </a>
         <div class="nav-links">
+          <a href="#window">Window</a>
           <a href="#features">Features</a>
-          <a href="#platforms">Platforms</a>
-          <a class="nav-cta" href="releases.html">Download</a>
+          <a class="nav-cta" href="#download">Download</a>
         </div>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
+        <canvas class="hero-tree" data-hero-tree aria-hidden="true"></canvas>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">Process explorer · macOS · Linux · Windows</p>
-            <h1 id="hero-title">Every process, in a tree that holds still.</h1>
+            <p class="eyebrow">Process explorer</p>
+            <h1 id="hero-title">A process tree <span class="soft">for your desktop.</span></h1>
             <p class="lede">
-              Mimameidr shows what your computer is running as a calm, stable
-              process tree with live CPU, memory, network, and storage metrics,
-              and an inspector for the details that matter.
+              Mimameidr lists the processes on your computer as a tree and shows
+              CPU, memory, network, and storage use for each one. It runs on
+              macOS, Linux, and Windows, and it is in beta.
             </p>
             <div class="actions">
-              <a class="button primary" href="releases.html">
+              <a class="button primary" href="#download">
                 <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-                Download
+                Download Mimameidr
               </a>
-              <a class="button ghost" href="#features">
-                See what it does
+              <a class="button" href="#window">
+                See the window
                 <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
               </a>
             </div>
-            <p class="hero-note">Beta · Signed for macOS · RPM, DEB, AppImage · Windows installer</p>
+            <ul class="hero-facts">
+              <li><b data-release="version">Beta</b></li>
+              <li><b>3</b> platforms</li>
+              <li>Light + dark</li>
+              <li>English + Deutsch</li>
+            </ul>
           </div>
-          <figure class="hero-art">
-            <img
-              src="assets/brand/mimameidr-feature-graphic.png"
-              alt="The Mimameidr app icon, a glass M drawn as connected process nodes, next to the name Mimameidr"
-              width="1024"
-              height="500"
-            >
-          </figure>
         </div>
+        <p class="hero-caption status live" aria-hidden="true">
+          <span class="dot"></span>
+          <span>Drawing, not your machine · <span data-tree-count>0</span> processes</span>
+        </p>
       </section>
 
-      <section class="preview-band" aria-label="App preview">
-        <div class="app-window" role="img" aria-label="Mimameidr showing a process tree with the Mimameidr process selected and its CPU and memory history in the inspector">
-          <div class="app-toolbar">
-            <span class="lights"><i></i><i></i><i></i></span>
-            <span class="app-title"><img src="assets/brand/mimameidr-icon.svg" alt="" width="16" height="16">Mimameidr</span>
-            <span class="app-search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>Search processes</span>
-            <span class="app-tools">
-              <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
-              <svg class="icon" aria-hidden="true"><use href="#i-refresh"/></svg>
-              <svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>
-            </span>
-          </div>
-          <div class="app-body">
-            <div class="app-panel tree">
-              <div class="tree-head"><span>Process</span><span>PID</span><span>CPU</span><span>Memory</span></div>
-              <div class="tree-row" style="--heat: 0.22"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>launchd</span><span>1</span><span>0.4%</span><span>42 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.55"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>WindowServer</span><span>412</span><span>6.1%</span><span>382 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.18"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>Finder</span><span>588</span><span>0.2%</span><span>188 MB</span></div>
-              <div class="tree-row d1 selected"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Mimameidr</span><span>830</span><span>1.8%</span><span>96 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.9"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>Code</span><span>902</span><span>12.4%</span><span>1.1 GB</span></div>
-              <div class="tree-row d2" style="--heat: 0.7"><span class="name"><span class="chev-space"></span>rust-analyzer</span><span>991</span><span>9.7%</span><span>1.2 GB</span></div>
-              <div class="tree-row d2" style="--heat: 0.1"><span class="name"><span class="chev-space"></span>Code Helper</span><span>1044</span><span>0.6%</span><span>214 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.3"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Safari</span><span>1402</span><span>2.3%</span><span>714 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.05"><span class="name"><span class="chev-space"></span>Terminal</span><span>1518</span><span>0.1%</span><span>64 MB</span></div>
-              <div class="tree-row d1" style="--heat: 0.4"><span class="name"><svg class="icon chev" aria-hidden="true"><use href="#i-chevron-right"/></svg>Docker</span><span>1733</span><span>3.2%</span><span>2.4 GB</span></div>
-            </div>
-            <div class="app-panel inspector">
-              <div class="inspector-head">
-                <img src="assets/brand/mimameidr-icon.svg" alt="" width="28" height="28">
-                <div><strong>Mimameidr</strong><span>PID 830 · running</span></div>
-              </div>
-              <div class="tabs"><span class="on">Overview</span><span>Details</span><span>Files</span><span>Threads</span></div>
-              <dl class="metrics">
-                <div><dt>CPU</dt><dd>1.8%</dd></div>
-                <div><dt>Memory</dt><dd>96 MB</dd></div>
-                <div><dt>Threads</dt><dd>24</dd></div>
-              </dl>
-              <div class="chart" aria-hidden="true">
-                <span style="--v: .35"></span><span style="--v: .5"></span><span style="--v: .42"></span><span style="--v: .7"></span><span style="--v: .55"></span><span style="--v: .3"></span><span style="--v: .46"></span><span style="--v: .62"></span><span style="--v: .8"></span><span style="--v: .58"></span><span style="--v: .4"></span><span style="--v: .52"></span><span style="--v: .66"></span><span style="--v: .48"></span><span style="--v: .74"></span><span style="--v: .9"></span>
-              </div>
-              <div class="chart split" aria-hidden="true">
-                <span style="--v: .3; --w: .2"></span><span style="--v: .5; --w: .35"></span><span style="--v: .2; --w: .6"></span><span style="--v: .6; --w: .3"></span><span style="--v: .45; --w: .5"></span><span style="--v: .25; --w: .2"></span><span style="--v: .7; --w: .4"></span><span style="--v: .35; --w: .55"></span><span style="--v: .5; --w: .25"></span><span style="--v: .8; --w: .45"></span><span style="--v: .4; --w: .3"></span><span style="--v: .55; --w: .6"></span><span style="--v: .3; --w: .35"></span><span style="--v: .65; --w: .2"></span><span style="--v: .45; --w: .5"></span><span style="--v: .6; --w: .4"></span>
-              </div>
-            </div>
-          </div>
-          <div class="app-status"><span class="dot"></span>Live · 1 s refresh<span class="spacer"></span>412 processes</div>
+      <section id="window" class="section" aria-labelledby="window-title">
+        <div class="section-head reveal">
+          <p class="eyebrow"><b>01</b> / The window</p>
+          <h2 id="window-title">Tree in the middle. <span class="soft">Details on the right.</span></h2>
+          <p class="section-lede">
+            A sketch of the main window, built in HTML with made-up numbers. You
+            can select a row, fold a branch, search, switch between tree and
+            process figures, or lock the tree.
+          </p>
         </div>
+        <figure class="app-figure reveal" data-demo>
+          <div class="app-window">
+            <div class="app-toolbar">
+              <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="app-title"><strong>Mimameidr</strong><small>Live · macos</small></span>
+              <label class="app-search">
+                <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+                <span class="sr-only">Search the sketch</span>
+                <input type="search" placeholder="Search name, PID, or path" autocomplete="off" spellcheck="false" data-demo-search>
+                <output data-demo-matches></output>
+                <span class="field-tools" aria-hidden="true"><svg class="icon"><use href="#i-case"/></svg><svg class="icon"><use href="#i-word"/></svg></span>
+              </label>
+              <span class="ibtns" aria-hidden="true"><svg class="icon"><use href="#i-bookmark-plus"/></svg><svg class="icon"><use href="#i-list-filter"/></svg></span>
+              <span class="app-select" aria-hidden="true">1000 ms<svg class="icon"><use href="#i-chevron-down"/></svg></span>
+              <span class="app-tools">
+                <button class="tbtn" type="button" aria-pressed="false" data-demo-lock>
+                  <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span>Lock</span>
+                </button>
+                <span class="tbtn" aria-hidden="true"><svg class="icon"><use href="#i-camera"/></svg><span>Snapshot</span></span>
+                <span class="tbtn" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg><span>Updates</span></span>
+                <span class="tbtn on" aria-hidden="true"><svg class="icon"><use href="#i-panel-right"/></svg><span>Inspector</span></span>
+                <span class="tbtn" aria-hidden="true"><svg class="icon"><use href="#i-settings"/></svg><span>Preferences</span></span>
+              </span>
+            </div>
+            <div class="app-body">
+              <div class="app-nav" aria-hidden="true">
+                <div class="nav-sec">Pinned</div>
+                <div class="nav-hint">Pin rows for quick access.</div>
+                <div class="nav-sec">Snapshots</div>
+                <div class="nrow selected"><svg class="icon"><use href="#i-activity"/></svg><span class="name">Live · macos</span><small>now</small></div>
+                <div class="nav-sec">Filters</div>
+                <div class="nav-hint">No saved filters.</div>
+              </div>
+              <div class="island app-island focused">
+                <div class="tree-head" aria-hidden="true"><span>Name</span><span>PID</span><span class="sorted">Tree CPU<svg class="icon"><use href="#i-arrow-down"/></svg></span><span>Tree RSS</span></div>
+                <div class="tree-rows" data-demo-rows>
+                  <button class="tree-row selected" type="button" data-depth="0" data-name="launchd" data-pid="1" data-cpu="0.2" data-mem="42" data-gpu="0" data-net="0" data-io="0" data-threads="4" data-hidden="392" data-hidden-cpu="14" data-hidden-mem="9200" data-hidden-gpu="2" data-hidden-net="18" data-hidden-io="900"><span class="name"><span class="label">launchd</span></span><span class="num pid">1</span><span class="num">0.2%</span><span class="num">42.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Code" data-pid="902" data-cpu="2.1" data-mem="520" data-gpu="0.4" data-net="6" data-io="20" data-threads="41"><span class="name"><span class="label">Code</span></span><span class="num pid">902</span><span class="num">2.1%</span><span class="num">520.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="2" data-name="rust-analyzer" data-pid="991" data-cpu="9.7" data-mem="1228" data-gpu="0" data-net="0" data-io="60" data-threads="16"><span class="name"><span class="label">rust-analyzer</span></span><span class="num pid">991</span><span class="num">9.7%</span><span class="num">1.2 GB</span></button>
+                  <button class="tree-row" type="button" data-depth="2" data-name="Code Helper" data-pid="1044" data-cpu="0.6" data-mem="214" data-gpu="0" data-net="0" data-io="0" data-threads="12" data-hidden="4" data-hidden-cpu="0.8" data-hidden-mem="600"><span class="name"><span class="label">Code Helper</span></span><span class="num pid">1044</span><span class="num">0.6%</span><span class="num">214.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="WindowServer" data-pid="412" data-cpu="6.1" data-mem="382" data-gpu="22" data-net="0" data-io="0" data-threads="18"><span class="name"><span class="label">WindowServer</span></span><span class="num pid">412</span><span class="num">6.1%</span><span class="num">382.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Safari" data-pid="1402" data-cpu="1.4" data-mem="380" data-gpu="3" data-net="40" data-io="20" data-threads="33" data-hidden="11" data-hidden-cpu="2.4" data-hidden-mem="1300" data-hidden-net="30"><span class="name"><span class="label">Safari</span></span><span class="num pid">1402</span><span class="num">1.4%</span><span class="num">380.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="mdworker_shared" data-pid="2201" data-cpu="3.4" data-mem="12" data-gpu="0" data-net="0" data-io="400" data-threads="4"><span class="name"><span class="label">mdworker_shared</span></span><span class="num pid">2201</span><span class="num">3.4%</span><span class="num">12.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Mimameidr" data-pid="830" data-cpu="1.8" data-mem="96" data-gpu="1" data-net="0" data-io="4" data-threads="24"><span class="name"><span class="label">Mimameidr</span></span><span class="num pid">830</span><span class="num">1.8%</span><span class="num">96.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Terminal" data-pid="1518" data-cpu="0.3" data-mem="64" data-gpu="0" data-net="0" data-io="0" data-threads="7"><span class="name"><span class="label">Terminal</span></span><span class="num pid">1518</span><span class="num">0.3%</span><span class="num">64.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="2" data-name="zsh" data-pid="1533" data-cpu="0.1" data-mem="6" data-gpu="0" data-net="0" data-io="0" data-threads="1" data-demo-host><span class="name"><span class="label">zsh</span></span><span class="num pid">1533</span><span class="num">0.1%</span><span class="num">6.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="ControlCenter" data-pid="642" data-cpu="0.4" data-mem="73" data-gpu="0" data-net="0" data-io="0" data-threads="8"><span class="name"><span class="label">ControlCenter</span></span><span class="num pid">642</span><span class="num">0.4%</span><span class="num">73.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Spotlight" data-pid="611" data-cpu="0.4" data-mem="166" data-gpu="0" data-net="0" data-io="40" data-threads="9"><span class="name"><span class="label">Spotlight</span></span><span class="num pid">611</span><span class="num">0.4%</span><span class="num">166.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Dock" data-pid="590" data-cpu="0.3" data-mem="70" data-gpu="0.2" data-net="0" data-io="0" data-threads="6"><span class="name"><span class="label">Dock</span></span><span class="num pid">590</span><span class="num">0.3%</span><span class="num">70.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="Finder" data-pid="588" data-cpu="0.2" data-mem="188" data-gpu="0" data-net="0" data-io="2" data-threads="9"><span class="name"><span class="label">Finder</span></span><span class="num pid">588</span><span class="num">0.2%</span><span class="num">188.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="loginwindow" data-pid="435" data-cpu="0.2" data-mem="71" data-gpu="0" data-net="0" data-io="0" data-threads="5"><span class="name"><span class="label">loginwindow</span></span><span class="num pid">435</span><span class="num">0.2%</span><span class="num">71.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="UniversalControl" data-pid="1782" data-cpu="0.1" data-mem="15" data-gpu="0" data-net="1" data-io="0" data-threads="6"><span class="name"><span class="label">UniversalControl</span></span><span class="num pid">1782</span><span class="num">0.1%</span><span class="num">15.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="cfprefsd" data-pid="615" data-cpu="0.1" data-mem="6" data-gpu="0" data-net="0" data-io="1" data-threads="3"><span class="name"><span class="label">cfprefsd</span></span><span class="num pid">615</span><span class="num">0.1%</span><span class="num">6.0 MB</span></button>
+                  <button class="tree-row" type="button" data-depth="1" data-name="trustd" data-pid="669" data-cpu="0.1" data-mem="13" data-gpu="0" data-net="0" data-io="0" data-threads="3"><span class="name"><span class="label">trustd</span></span><span class="num pid">669</span><span class="num">0.1%</span><span class="num">13.0 MB</span></button>
+                </div>
+              </div>
+              <div class="island app-island app-inspector">
+                <div class="inspector-head">
+                  <span class="avatar large" data-i="avatar">L</span>
+                  <div><strong data-i="name">launchd</strong><span>pid <span data-i="pid">1</span> · macos</span></div>
+                </div>
+                <div class="tabs" aria-hidden="true"><span class="on">Overview</span><span>Details</span><span>Network</span><span>Threads</span><span>Files &amp; Sockets</span></div>
+                <div class="inspector-body" data-i="body">
+                  <span class="seg sm" role="group" aria-label="Figures for">
+                    <button type="button" aria-pressed="true" data-demo-scope="tree">Tree</button>
+                    <button type="button" aria-pressed="false" data-demo-scope="process">Process</button>
+                  </span>
+                  <div class="tiles" data-i="tiles"></div>
+                  <div data-i="charts"></div>
+                </div>
+              </div>
+            </div>
+            <div class="app-status">
+              <span class="status live" data-demo-state><span class="dot"></span><span data-demo-status>Polling every 1000 ms</span></span>
+              <span class="spacer"></span>
+              <span><span data-demo-count>425</span> processes</span>
+            </div>
+          </div>
+          <figcaption class="app-caption">
+            <span>A sketch, not a screenshot. The app has more columns and its other inspector tabs work.</span>
+            <span class="seg" role="group" aria-label="Sketch appearance">
+              <button type="button" aria-pressed="false" data-demo-theme="light">Light</button>
+              <button type="button" aria-pressed="false" data-demo-theme="dark">Dark</button>
+            </span>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="features" class="section" aria-labelledby="features-title">
-        <div class="section-head">
-          <p class="eyebrow">Features</p>
-          <h2 id="features-title">Built for reading a busy machine at a glance</h2>
+        <div class="split">
+          <div class="section-head reveal">
+            <p class="eyebrow"><b>02</b> / Features</p>
+            <h2 id="features-title">What it does. <span class="soft">In eight parts.</span></h2>
+            <p class="section-lede">
+              Some details differ between macOS, Linux, and Windows, and the
+              inspector can only show what the system allows.
+            </p>
+          </div>
+          <ol class="ftree" data-ftree>
+            <li class="fnode reveal">
+              <h3>Process tree <span class="ftag">tree</span></h3>
+              <p>Processes are shown with their parents and children. Rows keep their place while the values update.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Tree lock <span class="ftag">lock</span></h3>
+              <p>Lock the tree to freeze the order while you look at something. The values keep refreshing.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Search and filters <span class="ftag">search</span></h3>
+              <p>Search by name, PID, or path. Matches are highlighted and the rest of the tree stays visible. A search can be saved as a filter.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Metrics and history <span class="ftag">metrics</span></h3>
+              <p>CPU, memory, network, and storage per process and per subtree, with history charts. Hover a chart to read a sample.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Inspector <span class="ftag">inspect</span></h3>
+              <p>Open files, sockets, threads, and security details for the selected process. When the system denies access, the inspector says so.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Process actions <span class="ftag">signal</span></h3>
+              <p>Terminate, force kill, suspend, or resume a process. Mimameidr asks before it sends a destructive signal.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Pins and subtree focus <span class="ftag">focus</span></h3>
+              <p>Pin the processes you check often, or narrow the view to one subtree.</p>
+            </li>
+            <li class="fnode reveal">
+              <h3>Snapshots <span class="ftag">snapshot</span></h3>
+              <p>Save the current tree, give it a name, export it, and open it again later.</p>
+            </li>
+          </ol>
         </div>
-        <div class="feature-grid">
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-list-tree"/></svg></span>
-            <h3>A stable process tree</h3>
-            <p>Parents and children stay where they are while metrics update, so you can follow a process without it jumping around.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg></span>
-            <h3>Tree lock</h3>
-            <p>Freeze the order while you investigate. Values keep refreshing and rows stay put.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
-            <h3>Search in place</h3>
-            <p>Type to highlight matching rows and jump between results without hiding the rest of the tree.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg></span>
-            <h3>Live metrics and history</h3>
-            <p>CPU, memory, network, and storage per process and per subtree, with history charts you can hover for exact values.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-hard-drive"/></svg></span>
-            <h3>A detailed inspector</h3>
-            <p>Open files, sockets, threads, and security details, with clear hints when the system restricts access.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></span>
-            <h3>Snapshots</h3>
-            <p>Capture the tree, name it, export it, and open it again later to compare with what is running now.</p>
-          </article>
-        </div>
+
+        <dl class="facts">
+          <div class="island reveal">
+            <dt><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg>Rust core</dt>
+            <dd>Process data is collected in Rust. The interface is built with Flutter on Meridian.</dd>
+          </div>
+          <div class="island reveal">
+            <dt><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg>Local only</dt>
+            <dd>Everything stays on your machine. No accounts and no analytics.</dd>
+          </div>
+          <div class="island reveal">
+            <dt><svg class="icon" aria-hidden="true"><use href="#i-languages"/></svg>Two languages</dt>
+            <dd>English and German, with light and dark appearance.</dd>
+          </div>
+        </dl>
       </section>
 
-      <section id="platforms" class="section platforms" aria-labelledby="platforms-title">
-        <div class="section-head">
-          <p class="eyebrow">Platforms</p>
-          <h2 id="platforms-title">Native builds for your desktop</h2>
-          <p class="section-lede">One app with the same behavior everywhere. Each build is made natively on its platform from the same release.</p>
+      <section id="download" class="section" aria-labelledby="download-title" data-downloads>
+        <div class="section-head reveal">
+          <p class="eyebrow"><b>03</b> / Download</p>
+          <h2 id="download-title">Get Mimameidr. <span class="soft">macOS, Linux, Windows.</span></h2>
+          <p class="section-lede">Pick the file for your system. The downloads page lists a SHA&#8209;256 checksum for every file.</p>
         </div>
-        <div class="platform-grid">
-          <a class="platform" href="releases.html">
-            <span class="platform-logo"><img src="assets/platform/apple.svg" alt=""></span>
-            <span class="platform-copy"><strong>macOS</strong><span>Signed, notarized DMG for Apple silicon with automatic updates.</span></span>
-          </a>
-          <a class="platform" href="releases.html">
-            <span class="platform-logo"><img src="assets/platform/linux.svg" alt=""></span>
-            <span class="platform-copy"><strong>Linux</strong><span>RPM, DEB, AppImage, and a portable tarball, with per-process network telemetry.</span></span>
-          </a>
-          <a class="platform" href="releases.html">
-            <span class="platform-logo"><img src="assets/platform/windows.svg" alt=""></span>
-            <span class="platform-copy"><strong>Windows</strong><span>Installer and portable ZIP for 64-bit Windows.</span></span>
-          </a>
-        </div>
-      </section>
+        <p class="release-line reveal" data-release="line" hidden>
+          <span class="chip" data-release="channel"></span>
+          <span class="mono" data-release="detail"></span>
+          <a data-release="notes" href="releases.html">Release notes</a>
+        </p>
+        <div class="os-grid">
+          <article class="os-card island reveal" data-platform="macos">
+            <div class="os-head">
+              <span class="os-mark"><span class="os-icon os-apple" aria-hidden="true"></span></span>
+              <div><h3>macOS</h3><p data-release="requires">Apple Silicon · macOS 14.0</p></div>
+              <span class="chip accent" data-yours hidden>Your system</span>
+            </div>
+            <ul class="file-list">
+              <li class="file"><a class="file-link" href="releases.html" data-format="dmg">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-apple"></span></span>
+                <span class="file-main"><strong>DMG</strong><span>Disk image</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+            </ul>
+            <p class="os-note">Signed and notarized. Updates are installed from inside the app.</p>
+          </article>
 
-      <section class="section principles" aria-labelledby="principles-title">
-        <h2 id="principles-title" class="sr-only">How Mimameidr is built</h2>
-        <div class="principle">
-          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg></span>
-          <div><h3>A Rust core</h3><p>Process enumeration, metrics, and actions run in a native Rust engine, so the interface stays responsive.</p></div>
-        </div>
-        <div class="principle">
-          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg></span>
-          <div><h3>Local only</h3><p>Everything stays on your machine. No accounts, and no analytics.</p></div>
-        </div>
-      </section>
+          <article class="os-card island reveal" data-platform="linux">
+            <div class="os-head">
+              <span class="os-mark"><span class="os-icon os-linux" aria-hidden="true"></span></span>
+              <div><h3>Linux</h3><p data-release="requires">x86_64</p></div>
+              <span class="chip accent" data-yours hidden>Your system</span>
+            </div>
+            <ul class="file-list">
+              <li class="file"><a class="file-link" href="releases.html" data-format="rpm">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-fedora"></span></span>
+                <span class="file-main"><strong>RPM</strong><span>Fedora</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+              <li class="file"><a class="file-link" href="releases.html" data-format="deb">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-debian"></span><span class="os-icon os-ubuntu"></span></span>
+                <span class="file-main"><strong>DEB</strong><span>Debian, Ubuntu</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+              <li class="file"><a class="file-link" href="releases.html" data-format="appimage">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-package"></span></span>
+                <span class="file-main"><strong>AppImage</strong><span>Single file, no install</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+              <li class="file"><a class="file-link" href="releases.html" data-format="tar">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-archive"></span></span>
+                <span class="file-main"><strong>Portable tarball</strong><span>Unpack and run</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+            </ul>
+            <p class="os-note">RPM and DEB include the service for per-process network figures. The portable builds can install it from the app.</p>
+          </article>
 
-      <section class="cta" aria-labelledby="cta-title">
-        <img src="assets/brand/mimameidr-icon.svg" alt="" width="72" height="72">
-        <h2 id="cta-title">Try Mimameidr</h2>
-        <p>Downloads for macOS, Linux, and Windows, each with a SHA&#8209;256 checksum.</p>
-        <a class="button primary" href="releases.html">
-          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-          Get the latest build
-        </a>
+          <article class="os-card island reveal" data-platform="windows">
+            <div class="os-head">
+              <span class="os-mark"><span class="os-icon os-windows" aria-hidden="true"></span></span>
+              <div><h3>Windows</h3><p data-release="requires">x86_64 · Windows 10 1809</p></div>
+              <span class="chip accent" data-yours hidden>Your system</span>
+            </div>
+            <ul class="file-list">
+              <li class="file"><a class="file-link" href="releases.html" data-format="msi">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-windows"></span></span>
+                <span class="file-main"><strong>Installer</strong><span>MSI</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+              <li class="file"><a class="file-link" href="releases.html" data-format="zip">
+                <span class="file-icons" aria-hidden="true"><span class="os-icon os-archive"></span></span>
+                <span class="file-main"><strong>Portable ZIP</strong><span>Unpack and run</span></span>
+                <span class="file-size" data-size></span>
+                <span class="file-get" aria-hidden="true"><svg class="icon"><use href="#i-download"/></svg></span>
+              </a></li>
+            </ul>
+            <p class="os-note">The app checks for new builds and links back to the downloads page.</p>
+          </article>
+        </div>
+        <p class="dl-more reveal">
+          <span>Checksums, install commands, and earlier builds are on the downloads page.</span>
+          <a href="releases.html">Open the downloads page <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </p>
       </section>
     </main>
 
     <footer class="site-footer">
       <span class="footer-brand"><img src="assets/brand/mimameidr-icon.svg" alt="" width="20" height="20">Mimameidr</span>
       <span class="footer-links"><a href="releases.html">Downloads</a><a href="download/appcast.xml">macOS appcast</a></span>
-      <span>Local telemetry, no analytics.</span>
+      <span>Built on Meridian. Named after Mímameiðr, a tree in Norse mythology.</span>
     </footer>
   </body>
 </html>
